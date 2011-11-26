@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %} 所有的问题 {% endblock %}
+
+{% block _title %} 所有的问题 {% endblock %}
+
+{% block content %}
+<h2>问题列表</h2>
+{% for obj in obj_list %}
+	{{ obj.id }}. <a href="/q/{{ obj.id }}/">{{ obj.title }} </a>
+		<br/>&nbsp;&nbsp;&nbsp;&nbsp;({{ obj.right_count }}/{{ obj.wrong_count }})  by <a href="/p/{{ obj.owner }}/">{{ obj.owner.username }}</a> @ {{ obj.pub_date|date:"Y-m-d" }}
+	<br/>
+{% endfor %}
+
+{% endblock %}

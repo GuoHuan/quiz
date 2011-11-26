@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}  造个试卷 {% endblock %}
+
+{% block _title %} 制作考卷  {% endblock %}
+
+{% block content %}
+<div class="quiz-create" >
+<form action="" method="post"> {% csrf_token %}
+<fieldset>
+	<legend>制作何种试卷？</legend>
+	<label for="level"> 等级&nbsp;&nbsp;   </label>
+		<select name="level" > 
+			<option>等级1</option>
+			<option>等级2</option>
+			<option>等级3</option>
+		</select>
+	<br/><br/>
+	<label for="class_type"> 难易 &nbsp;&nbsp; </label>
+		<select name="class_type"> 
+			<option>容易</option>
+			<option>中等</option>
+			<option>困难</option>
+		</select>
+	<br/><br/>
+	<label for="q_num"> 数量 &nbsp;&nbsp; </label>
+		<select name="q_num"> 
+			<option>25</option>
+			<option>50</option>
+			<option>100</option>
+		</select>
+
+	<br/> <br/> <br/>		
+	<input type="submit" value="开始制作试卷"/>
+</fieldset>
+</form>
+</div>
+{% endblock %}
