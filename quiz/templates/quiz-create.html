@@ -4,22 +4,35 @@
 {% block _title %} 制作考卷  {% endblock %}
 
 {% block content %}
+{% if isCreated %}
+<h2>{{ quiz_info }}</h2>
+<div class="quiz-test">
+	<form action="/quiz/" method="post"> {% csrf_token %}
+		<ol>
+		{% for obj in obj_list %}
+			<li>{% include "question.html" %}</li>
+		{% endfor %}
+		</ol>
+		<input type="submit" value="答完了,交卷！">
+	</form>
+</div>
+{% else %}
 <div class="quiz-create" >
-<form action="" method="post"> {% csrf_token %}
+<form action="." method="post"> {% csrf_token %}
 <fieldset>
 	<legend>制作何种试卷？</legend>
 	<label for="level"> 等级&nbsp;&nbsp;   </label>
 		<select name="level" > 
-			<option>等级1</option>
-			<option>等级2</option>
-			<option>等级3</option>
+			<option value="1">等级1</option>
+			<option value="2">等级2</option>
+			<option value="3">等级3</option>
 		</select>
 	<br/><br/>
 	<label for="class_type"> 难易 &nbsp;&nbsp; </label>
 		<select name="class_type"> 
-			<option>容易</option>
-			<option>中等</option>
-			<option>困难</option>
+			<option value="e">容易</option>
+			<option value="m">中等</option>
+			<option value="h">困难</option>
 		</select>
 	<br/><br/>
 	<label for="q_num"> 数量 &nbsp;&nbsp; </label>
@@ -34,4 +47,5 @@
 </fieldset>
 </form>
 </div>
+{% endif %}
 {% endblock %}

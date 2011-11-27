@@ -1,4 +1,27 @@
 {% extends "base.html" %}
 
+{% block title %}考试成绩{% endblock %}
+{% block _title %}考试成绩{% endblock %}
+
+{% block content %}
+<h2>Hi <a href="/p/{{ user }}">{{ user.username }}</a> ,这是您的考试成绩: {{ result }}</h2>
+正确：{{ r_count }}个<br/>
+错误：{{ w_count }}个<br/>
+<a href="/record/">查看考试记录</a>
+{% if w_count %}
+<hr/>
+	错误题目：
+	<div class="w-question-box">
+	<ol>
+	{% for obj in w_obj_list %}
+		<li>{{ obj }}</li>
+	<div class="r-answer">	正确答案 ： {% for r in obj.get_right_answer %} {{ r.title }}&nbsp;&nbsp; {% endfor %} <br/>
+		{{ obj.description }}<br/>
+		</div>
+	{% endfor%}
+	</ol>
+	</div>
+{% endif %}
+{% endblock %}
 
 

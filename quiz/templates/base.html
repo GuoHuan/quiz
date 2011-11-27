@@ -13,6 +13,15 @@
 		<div id="main-box" class="mainBox">
             <div id="header" class="header">
 				<h1 id="branding"  ><a href="/">iQuiz </a> | {% block _title %} {% endblock %}</h1>
+				<div id="menu" >
+					<ul>
+						<li> <a href="/">首页</a> </li>
+						<li> <a href="/qall/">问题</a> </li>
+						<li> <a href="/quiz/create/">测试</a> </li>
+						<li> <a href="/record/">记录</a> </li>
+						<li> <a href="/help/">帮助</a> </li>
+					</ul>
+				</div>
 	       	</div>
 			<div id="content" class="content">
 				{% block content %}
@@ -39,8 +48,16 @@
 						<a href="/qall/">问题</a>
 					</li>
 					<li id="main-nav-quiz">
-						<a href="/create_quiz/">进入测试</a>
+						<a href="/quiz/create/">进入测试</a>
 					</li>
+					<li id="main-nav-record">
+						<a href="/record/">记录</a>
+					</li>
+					<li id="main-nav-help">
+						<a href="/help/">帮助</a>
+					</li>
+
+
 				</ul>
 				
 				<h2>留言/评论</h2>

@@ -1,15 +1,4 @@
-{% extends "base.html" %}
-{% block title %} Question {{ obj.id }} {{ obj }} {% endblock %}
-{% block _title %} Question {{ obj.id }} <br/> {{ obj }} {% endblock %}
-
-{% block content %}
-<h2 > 请选择答案</h2>
-
-<form action="" method="post"> {% csrf_token %}
+{{ obj }} <br/>
 {% for answer in obj.answer_set.all %}
-	<input type="radio" name="a_id" value="{{ answer.id }}"> {{ answer }} <br/>
+<input type="radio" name="{{ obj.id }}" value="{{ answer.id }}">{{ answer }}  <br/>
 {% endfor %}
-<input type="submit" value="提交答案" />
-</form>
-
-{% endblock %}

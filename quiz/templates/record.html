@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %} 考试记录 {% endblock %}
+{% block _title %} 考试记录 {% endblock %}
+
+{% block content %}
+	<ul>
+	{% for obj in obj_list %}
+		<li>  {{ obj.pub_date|date:"Y-m-d"}} {{ obj.get_time }}<br/>
+		得分：{{ obj.result }} <br/>
+		笔记：{{ obj.notes }} </li>
+		错误问题：
+		<div class="w-list">
+
+		<ol>
+		{% for w in obj.wrong_question.all %}
+		    <li><a href="/q/{{ w.id }}">{{ w }}</a></li>
+		{% endfor %}
+		</ol>
+		</div>
+		<hr/>
+	{% endfor %}
+	</ul>
+{% endblock %}

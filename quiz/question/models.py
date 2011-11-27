@@ -27,7 +27,8 @@ class Question(models.Model):
 	
 	def get_answer_choice(self):
 		return self.answer_set.all()
-		
+	def get_right_answer(self):
+		return self.answer_set.filter(isRight=True)
 
 
 class Answer(models.Model):
@@ -47,5 +48,7 @@ class Record(models.Model):
 
 	def __unicode__(self):
 		return "result:%d @ %s " % (self.result , self.pub_date)
+	def get_time(self):
+		return "%s:%s:%s" % (self.pub_date.hour,self.pub_date.minute,self.pub_date.second)
 
 

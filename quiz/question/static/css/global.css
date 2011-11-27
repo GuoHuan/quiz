@@ -43,18 +43,22 @@ a:hover
 }
 /**** seting & size --***/
 .mainBox {       
-         margin-left: auto;
+         background:url(../images/top_bg.gif) repeat scroll 0 0 transparent;
+		 margin-left: auto;
          margin-right: auto;
          width: 930px;
 		display:block;
 }
 .header {
-	background: none repeat scroll 0 0 #EEEEEE;
+	/*background: none repeat scroll 0 0 #EEEEEE;*/
 	display:block;
 	width: 100%;
-    height: 80px;
+    height: 85px;
 	
 }
+.header h1 {
+	color:white;
+	}
 .content {
 	width: 590px;
 	float:left;
@@ -103,4 +107,68 @@ body {
 	margin-bottom:10px;
 	padding:10px;
 	text-align:center;	
+}
+/**** Main Menu ***/
+
+
+#menu {
+	display: block;
+	float:right;
+	margin-top:15px;
+}
+
+#menu ul {
+	margin: 0;
+	list-style: none;
+}
+
+#menu li {
+	display: block;
+	float: left;
+	white-space: nowrap;
+}
+
+#menu li a {
+	display: inline;
+	padding: 55px 20px 12px 20px;
+	text-decoration: none;
+	color: #fff;
+	font-weight: bold;
+}
+
+* html #menu a {width:1%;}
+
+#menu li a:hover {
+	background: url(../images/bg_menu.gif);
+	color:#0089ff;
+	
+}
+
+#menu li a.current {
+	letter-spacing: 1px;
+	color: gray;
+	background: url(../images/bg_menu.gif);
+}
+
+#menu li a.normal {
+	letter-spacing:1px;
+}
+
+#menu li a.current:hover {
+	color: #fff;
+}
+
+/*** for quiz-result ***/
+.w-question-box
+{
+	color:red;
+}
+.r-answer {
+	color:#93b333;
+	display:block;
+	background:#3e3e3e;
+}
+.w-list {
+	display:block;
+	background:#3e3e3e;
 }

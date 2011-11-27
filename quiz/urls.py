@@ -3,7 +3,7 @@ from django.views.generic.simple import direct_to_template
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 
-from question.views import show_question_by_id,show_all_questions,quiz
+from question.views import show_question_by_id,show_all_questions,quiz_create,quiz,show_record
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -19,6 +19,8 @@ urlpatterns = patterns('',
 	url(r'$^',direct_to_template,{'template':'index.html'}),
 	url(r'^q/(?P<q_id>\d+)/$',show_question_by_id),
 	url(r'^qall/$',show_all_questions),
-	url(r'^create_quiz/$',direct_to_template,{'template':'c_quiz.html'}),
+	url(r'^quiz/create/$',quiz_create),
 	url(r'^quiz/$',quiz),
+	url(r'^help/$',direct_to_template,{'template':'help.html'}),
+	url(r'^record/$',show_record),
 )
